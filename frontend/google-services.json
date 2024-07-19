@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "744220124335",
+    "project_id": "innovatex-dtu",
+    "storage_bucket": "innovatex-dtu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744220124335:android:35e2171b9605dd8490a05a",
+        "android_client_info": {
+          "package_name": "com.dtu.innovateX"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744220124335-esh02tdgmo37m6c49kf2ajf0or77phn7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dtu.innovateX",
+            "certificate_hash": "5cbff385ec317da0db4fc43e846e629cb7152c4f"
+          }
+        },
+        {
+          "client_id": "744220124335-b73ktrtv3i7ep3m7n6lnrsigksrqsr0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjfBakldLaaMcBSQ9e9lDxuWOTs8PPvMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744220124335-b73ktrtv3i7ep3m7n6lnrsigksrqsr0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
