@@ -10,6 +10,7 @@ import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -47,7 +48,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesAuthRepository(auth: FirebaseAuth, @ApplicationContext context: Context): AuthRepository = AuthRepositoryImpl(auth, context)
+    fun providesAuthRepository(auth: FirebaseAuth): AuthRepository = AuthRepositoryImpl(auth)
 
     @Provides
     @Singleton

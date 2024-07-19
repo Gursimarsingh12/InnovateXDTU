@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = "com.dtu.innovateX"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.dtu.innovateX"

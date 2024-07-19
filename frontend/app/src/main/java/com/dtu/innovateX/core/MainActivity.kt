@@ -15,7 +15,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             InnovateXDTUTheme {
-                AppNavGraph()
+                AppNavGraph(
+                    context = this
+                )
             }
         }
     }

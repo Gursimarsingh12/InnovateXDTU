@@ -21,8 +21,7 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val auth: FirebaseAuth,
-    private val context: Context
+    private val auth: FirebaseAuth
 ) : AuthRepository {
     override suspend fun signUp(user: User): Flow<Resource<FirebaseUser>> = flow {
         emit(Resource.Loading)
@@ -48,7 +47,7 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun googleSignIn(): Flow<Resource<FirebaseUser>> = flow {
+    override suspend fun googleSignIn(context: Context): Flow<Resource<FirebaseUser>> = flow {
         emit(Resource.Loading)
         try {
             val credentialManager = CredentialManager.create(context)

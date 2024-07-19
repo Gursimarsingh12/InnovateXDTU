@@ -1,5 +1,6 @@
 package com.dtu.innovateX.navigation
 
+import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
@@ -12,7 +13,8 @@ import com.dtu.innovateX.auth.presentation.register.SignUpScreen
 
 @Composable
 fun AppNavGraph(
-    authViewModel: AuthViewModel = hiltViewModel()
+    authViewModel: AuthViewModel = hiltViewModel(),
+    context: Context
 ) {
     val navController = rememberNavController()
     val startDestination = if(authViewModel.getCurrentUser() != null){
@@ -31,7 +33,8 @@ fun AppNavGraph(
                 },
                 navigateToLogInScreen = {
 
-                }
+                },
+                context = context
             )
         }
         composable<Screens.HomeScreen> {

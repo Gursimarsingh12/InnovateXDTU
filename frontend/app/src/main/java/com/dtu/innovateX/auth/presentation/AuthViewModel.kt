@@ -1,5 +1,6 @@
 package com.dtu.innovateX.auth.presentation
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dtu.innovateX.auth.domain.model.UserState
@@ -98,8 +99,8 @@ class AuthViewModel @Inject constructor(
         return emailError.isEmpty() && passwordError.isEmpty()
     }
 
-    fun googleSignIn() = viewModelScope.launch {
-        authUseCase.googleSignIn().collectLatest { state ->
+    fun googleSignIn(context: Context) = viewModelScope.launch {
+        authUseCase.googleSignIn(context).collectLatest { state ->
             _authState.update {
                 it.copy(
                     state = state
