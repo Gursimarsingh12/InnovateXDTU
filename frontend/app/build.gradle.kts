@@ -71,6 +71,8 @@ dependencies {
     implementation(libs.googleid)
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.androidx.credentials)
     // Firestore
     implementation(libs.firebase.firestore)
     // Material Icons Extended

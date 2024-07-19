@@ -23,6 +23,7 @@ firebaseFirestore = "25.0.0"
 documentfile = "1.0.1"
 firebaseAuth = "23.0.0"
 googleid = "1.1.1"
+credentials = "1.2.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -54,6 +55,8 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 androidx-documentfile = { group = "androidx.documentfile", name = "documentfile", version.ref = "documentfile" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "googleid" }
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
