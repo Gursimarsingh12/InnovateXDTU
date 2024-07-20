@@ -26,7 +26,7 @@ The Smart Home Project APP is a cutting-edge application that brings automation 
 
 ## Technologies Used
 
-- **Frontend**: Flutter
+- **Frontend**: Kotlin, Jetpack Compose, Bluetooth, Retrofit, Coroutines, Flow, Dagger Hilt
 - **Backend**: FastAPI
 - **Machine Learning**: Scikit-learn
-- **Database**: SQLite
+- **Database**: SQLite, Firebase
