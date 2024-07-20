@@ -19,7 +19,9 @@ import kotlinx.coroutines.flow.StateFlow
 import java.io.IOException
 import java.util.*
 
-class BluetoothManager(application: Application) : AndroidViewModel(application) {
+class BluetoothManager(
+    application: Application
+) : AndroidViewModel(application) {
 
     private val bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
     private val _connectionStatus = MutableStateFlow("")
@@ -67,7 +69,6 @@ class BluetoothManager(application: Application) : AndroidViewModel(application)
         return scanPermission == PackageManager.PERMISSION_GRANTED && fineLocationPermission == PackageManager.PERMISSION_GRANTED
     }
 
-    // Add a receiver to handle discovered devices (not included in your original code)
     private val discoveryReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             when (intent.action) {

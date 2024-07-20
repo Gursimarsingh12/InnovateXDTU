@@ -6,8 +6,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
-import com.dtu.innovateX.HomeScreen
+import com.dtu.innovateX.UserScreen
 import com.dtu.innovateX.auth.presentation.AuthViewModel
 import com.dtu.innovateX.auth.presentation.register.SignUpScreen
 
@@ -38,7 +37,7 @@ fun AppNavGraph(
             )
         }
         composable<Screens.HomeScreen> {
-            HomeScreen()
+            UserScreen()
         }
     }
 }

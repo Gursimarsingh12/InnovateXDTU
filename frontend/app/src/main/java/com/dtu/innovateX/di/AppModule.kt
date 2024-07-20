@@ -1,9 +1,12 @@
 package com.dtu.innovateX.di
 
+import android.bluetooth.BluetoothAdapter
 import android.content.Context
+import com.dtu.innovateX.api.remote.ApiService
 import com.dtu.innovateX.auth.data.repository.AuthRepositoryImpl
 import com.dtu.innovateX.auth.domain.repository.AuthRepository
 import com.dtu.innovateX.auth.domain.use_case.AuthUseCase
+import com.dtu.innovateX.bluetooth.data.repository.BluetoothRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -37,7 +40,7 @@ object AppModule {
     @Provides
     @Singleton
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("")
+        .baseUrl("https://innovatexdtu.onrender.com/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -53,4 +56,16 @@ object AppModule {
     @Provides
     @Singleton
     fun providesAuthUseCase(repository: AuthRepository): AuthUseCase = AuthUseCase(repository)
+
+    @Provides
+    @Singleton
+    fun providesBluetoothAdapter(): BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+
+    @Provides
+    @Singleton
+    fun providesBluetoothRepository(@ApplicationContext context: Context, bluetoothAdapter: BluetoothAdapter) = BluetoothRepository(context, bluetoothAdapter)
+
+    @Provides
+    @Singleton
+    fun providesApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 }
