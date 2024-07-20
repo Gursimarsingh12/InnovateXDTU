@@ -1,5 +1,6 @@
 package com.dtu.innovateX.core
 
+import MyCombinedChart
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -111,7 +112,7 @@ fun AppNavHost(navController: NavHostController) {
         }
     }
 
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(navController = navController, startDestination = "ygraph") {
         composable("home") {
             BluetoothScreen(
                 onSendDataClicked = { navController.navigate("sendData") },
@@ -123,6 +124,9 @@ fun AppNavHost(navController: NavHostController) {
         }
         composable("receiveData") {
             ReceiveDataScreen(onBackClicked = { navController.popBackStack() })
+        }
+        composable("ygraph") {
+            MyCombinedChart()
         }
     }
 }
