@@ -1,1 +1,9 @@
 env
+.ipynb_checkpoints
+__pycache__
+dataset/building_metadata.csv
+dataset/test.csv
+dataset/train.csv
+dataset/weather_test.csv
+dataset/weather_train.csv
+datamaker.py
