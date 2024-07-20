@@ -4,6 +4,8 @@ from routes.machineLearning import router as ml_router
 from routes.User import router as user_router
 from databaseSchema import Base
 from databaseConnection import engine
+import os
+import uvicorn
 
 app = FastAPI()
 
@@ -21,5 +23,4 @@ app.include_router(ml_router)
 app.include_router(user_router)
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, host="localhost", port=int(os.getenv("PORT")))
