@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = "com.dtu.innovateX"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.dtu.innovateX"
@@ -71,6 +71,8 @@ dependencies {
     implementation(libs.googleid)
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.androidx.credentials)
     // Firestore
     implementation(libs.firebase.firestore)
     // Material Icons Extended

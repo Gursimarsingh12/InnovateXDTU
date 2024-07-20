@@ -1,5 +1,6 @@
 package com.dtu.innovateX.auth.presentation.register
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -51,7 +53,8 @@ fun SignUpScreen(
     modifier: Modifier = Modifier,
     authViewModel: AuthViewModel = hiltViewModel(),
     navigateToLogInScreen: () -> Unit,
-    navigateToDetailsScreen: () -> Unit
+    navigateToDetailsScreen: () -> Unit,
+    context: Context
 ) {
     val authState by authViewModel.authState.collectAsState()
     val scrollState = rememberScrollState()
@@ -149,7 +152,7 @@ fun SignUpScreen(
                     Spacer(modifier = Modifier.height(38.dp))
                     GoogleComponent(
                         onClickGoogle = {
-                            authViewModel.googleSignIn()
+                            authViewModel.googleSignIn(context)
                         }
                     )
                     Spacer(modifier = Modifier.padding(15.dp))
