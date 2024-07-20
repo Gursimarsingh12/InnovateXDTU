@@ -1,9 +1,3 @@
-pandas
-numpy
-matplotlib
-scikit-learn
 fastapi
 uvicorn
 sqlalchemy
-jupyterlab
-xgboost
