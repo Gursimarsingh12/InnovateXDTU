@@ -1,0 +1,6 @@
+{
+    "target": "CardComposable",
+    "package": "com.dtu.innovateX.cardcomposable",
+    "generateImplementation": true,
+    "generatePreviews": true
+}

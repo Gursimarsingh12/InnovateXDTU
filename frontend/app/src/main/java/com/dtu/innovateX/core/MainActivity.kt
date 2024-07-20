@@ -9,6 +9,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -19,8 +21,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -28,9 +37,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import co.yml.charts.common.model.Point
+import com.dtu.innovateX.R
 import com.dtu.innovateX.bluetooth.BluetoothManager
+import com.dtu.innovateX.bytebeatsgraph.LineChartView
+import com.dtu.innovateX.chart.LineChartComposable
+import com.dtu.innovateX.bytebeatsgraph.LineChartView
+import com.dtu.innovateX.chart.LineChartComposable
 import com.dtu.innovateX.core.theme.InnovateXDTUTheme
 import com.dtu.innovateX.startScanning
+import com.dtu.innovateX.yCharts.Chart
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -111,7 +127,7 @@ fun AppNavHost(navController: NavHostController) {
         }
     }
 
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(navController = navController, startDestination = "Ychart") {
         composable("home") {
             BluetoothScreen(
                 onSendDataClicked = { navController.navigate("sendData") },
@@ -124,8 +140,90 @@ fun AppNavHost(navController: NavHostController) {
         composable("receiveData") {
             ReceiveDataScreen(onBackClicked = { navController.popBackStack() })
         }
+        composable("lineChartComposable") {
+            LineChartComposable(
+                expectedData = mapOf(30 to 50, 20 to 55, 60 to 60),
+                actualData = mapOf(40 to 45, 10 to 50, 60 to 55)
+            )
+        }
+        composable("bytegraph") {
+            LineChartView()
+        }
+        composable("Ychart") {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+            ) {
+                Column(
+                    modifier = Modifier
+                        .padding(16.dp, 32.dp)
+                ) {
+                    Text(
+                        text = "Good Morning",
+                        fontSize = 16.sp,
+                        color = colorResource(id = R.color.grey),
+                        fontFamily = FontFamily(Font(R.font.nunito_light_1)),
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Ajay Manva",
+                                fontSize = 24.sp,
+                                fontFamily = FontFamily(Font(R.font.nunito_bold_1)),
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            )
+                            Spacer(modifier = Modifier.width(7.dp))
+                            Image(
+                                painter = painterResource(R.drawable.hello),
+                                contentDescription = "Icon",
+                                modifier = Modifier
+                                    .size(35.dp)
+                            )
+                        }
+                    }
+                }
+                Box(
+                    modifier = Modifier
+                        .background(Color.Transparent)
+                        .fillMaxWidth()
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .background(Color.Transparent)
+                            .fillMaxWidth()
+                    ) {
+                        val list1 = listOf(Point(0f, 40f), Point(1f, 90f), Point(2f, 0f), Point(3f, 60f), Point(4f, 10f))
+                        Chart(list1, Color.Transparent)
+                    }
+                    Box(
+                        modifier = Modifier
+                            .background(Color.Transparent)
+                            .fillMaxWidth()
+                    ) {
+                        val list2 = listOf(Point(0f, 80f), Point(1f, 90f), Point(2f, 20f), Point(3f, 60f), Point(4f, 20f))
+                        Chart(list2, Color.Transparent)
+                    }
+                }
+            }
+        }
+        composable("Ychart_2") {
+//            PreviewCombinedLineChart()
+        }
     }
 }
+
+
 
 @Composable
 fun BluetoothScreen(

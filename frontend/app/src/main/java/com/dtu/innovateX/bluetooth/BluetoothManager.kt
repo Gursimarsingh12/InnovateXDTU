@@ -42,16 +42,24 @@ class BluetoothManager(application: Application) : AndroidViewModel(application)
     fun connectToDevice(device: BluetoothDevice) {
         if (hasBluetoothPermissions()) {
             try {
-                val uuid: UUID = device.uuids[0].uuid
+                // Handle case where UUIDs might be null
+                val uuid: UUID = device.uuids?.firstOrNull()?.uuid
+                    ?: UUID.fromString("00001101-0000-1000-8000-00805F9B34FB") // Fallback UUID for SPP
+
                 val socket: BluetoothSocket? = device.createRfcommSocketToServiceRecord(uuid)
                 bluetoothAdapter?.cancelDiscovery()
+
+                // Connect to the device
                 socket?.connect()
-                _connectionStatus.value = "Connected to ${device.name}"
-                Toast.makeText(getApplication(), "Connected to ${device.name}", Toast.LENGTH_SHORT).show()
+                _connectionStatus.value = "Connected to ${device.name} with UUID ${uuid}"
+                Toast.makeText(getApplication(), "Connected to ${device.name} with UUID ${uuid}", Toast.LENGTH_SHORT).show()
+
+                // Log UUIDs for debugging
+                Log.i("BluetoothDevice", "Device UUIDs: ${device.uuids?.joinToString(", ") { it.uuid.toString() } ?: "No UUIDs"}")
             } catch (e: IOException) {
                 e.printStackTrace()
                 _connectionStatus.value = "Connection failed"
-                Toast.makeText(getApplication(), "Connected failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(getApplication(), "Connection failed", Toast.LENGTH_SHORT).show()
             } catch (e: SecurityException) {
                 e.printStackTrace()
                 _connectionStatus.value = "Connection failed due to permissions"

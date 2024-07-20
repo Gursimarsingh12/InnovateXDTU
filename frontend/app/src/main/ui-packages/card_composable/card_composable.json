@@ -1,0 +1,252 @@
+{
+  "name": "card_composable",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "8DwkuvzVHzsNXkNszk33ig",
+    "node": "25:100",
+    "version": "6258694578",
+    "component-id": "94d3f90c30524f463f396bedf49295242e2afc11"
+  },
+  "default": "CardComposable",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 10"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 11"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 12"
+      },
+      {
+        "type": "vector",
+        "id": "Rectangle 13"
+      },
+      {
+        "type": "text",
+        "id": "Kitchen"
+      },
+      {
+        "type": "group",
+        "id": "79%"
+      },
+      {
+        "type": "text",
+        "id": "79%1"
+      }
+    ],
+    "modes": {
+      "CardComposable": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": false,
+            "children": [
+              "Rectangle 10",
+              "Rectangle 11",
+              "Rectangle 12",
+              "Rectangle 13",
+              "Kitchen",
+              "79%"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "Rectangle 10",
+            "border-radius": 24.0,
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_10.svg"
+          },
+          {
+            "id": "Rectangle 11",
+            "margin": {
+              "left": 11.0,
+              "top": 68.0,
+              "right": 270.0,
+              "bottom": 12.0
+            },
+            "border-radius": 28.0,
+            "tap-handler": "$onClick3",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_11.svg"
+          },
+          {
+            "id": "Rectangle 12",
+            "margin": {
+              "left": 65.0,
+              "top": 73.0,
+              "right": 197.0,
+              "bottom": 18.0
+            },
+            "border-radius": 28.0,
+            "tap-handler": "$onClick2",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_12.svg"
+          },
+          {
+            "id": "Rectangle 13",
+            "margin": {
+              "left": 131.0,
+              "top": 73.0,
+              "right": 131.0,
+              "bottom": 18.0
+            },
+            "border-radius": 28.0,
+            "tap-handler": "$onClick",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "vector-content": "rectangle_13.svg"
+          },
+          {
+            "id": "Kitchen",
+            "margin": {
+              "left": 13.0,
+              "top": 11.0,
+              "right": 157.0,
+              "bottom": 98.0
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "text-content": "$Title",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 22.0,
+            "line-height": 1.27294921875,
+            "typeface": "Days One"
+          },
+          {
+            "id": "79%",
+            "margin": {
+              "left": 12.0,
+              "top": 39.0,
+              "right": 280.0,
+              "bottom": 88.0
+            },
+            "is-structured": false,
+            "children": [
+              "79%1"
+            ],
+            "clip-content": false
+          },
+          {
+            "id": "79%1",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": 1.0
+              }
+            },
+            "text-content": "$NumContent",
+            "overflow": "visible",
+            "max-lines": -1,
+            "text-align": "left",
+            "text-size": 11.0,
+            "line-height": 1.5,
+            "typeface": "Poppins"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "onClick3": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onClick2": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "onClick": {
+      "data-type": "void-callback",
+      "required": false,
+      "description": ""
+    },
+    "Title": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "NumContent": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "CardComposable",
+      "size": {
+        "width": 320.0,
+        "height": 139.0
+      },
+      "parameters": {
+        "Title": "Kitchen",
+        "NumContent": "79%"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
