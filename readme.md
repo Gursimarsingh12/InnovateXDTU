@@ -1,4 +1,4 @@
-# Smart Home Project APP
+# Smart Home App
 
 The Smart Home Project APP is a cutting-edge application that brings automation and convenience to your home. With its intuitive interface and seamless integration with various smart devices, it allows you to control and monitor your home from anywhere.
 
@@ -23,3 +23,10 @@ The Smart Home Project APP is a cutting-edge application that brings automation 
 2. Connect your smart devices to the app using bluetooth.
 3. Customize your device settings, schedules, and energy preferences.
 4. Start enjoying the convenience and energy efficiency of a smart home!
+
+## Technologies Used
+
+- **Frontend**: Flutter
+- **Backend**: FastAPI
+- **Machine Learning**: Scikit-learn
+- **Database**: SQLite
