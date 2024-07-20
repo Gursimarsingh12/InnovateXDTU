@@ -1,3 +1,13 @@
+## Accessing the API
+
+The API is hosted on Render and can be accessed using the following link:
+
+[https://innovatexdtu.onrender.com/](https://innovatexdtu.onrender.com/)
+
+The API documentation can be accessed using the following link:
+
+[https://innovatexdtu.onrender.com/docs](https://innovatexdtu.onrender.com/docs)
+
 ## Setup
 
 1. Set up a virtual environment
