@@ -8,13 +8,13 @@
 ### 1. Set up a virtual environment
 
 ```bash
-python3 -m venv venv
+python -m venv venv
 ```
 
 ### 2. Activate the virtual environment
 
 ```bash
-source venv/bin/activate
+.\env\Scripts\Activate
 ```
 
 ### 3. Install the requirements
@@ -29,3 +29,10 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
+## About Backend
+
+FastAPI is used to create the backend of the application. It is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
+
+model.ipynb is a jupyter notebook that contains the code to train the model and save it as a pickle file.
+
+main.py is the main file that contains the code to create the API endpoints.
