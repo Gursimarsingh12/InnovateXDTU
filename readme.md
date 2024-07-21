@@ -17,6 +17,10 @@ The Smart Home Project APP is a cutting-edge application that brings automation 
 - **Cost Savings**: Lower your energy bills by making informed decisions based on energy predictions and optimization tips.
 - **Security**: Monitor and secure your home with integrated security features.
 
+## Prototype
+    
+![Smart Home App](https://drive.google.com/file/d/1f-goQabQ4A67jnZfyZYpjXOFZgCKqLW0/view?usp=drive_link)
+
 ## How to Get Started
 
 1. Download and install the Smart Home Project APP from the given APK file.
