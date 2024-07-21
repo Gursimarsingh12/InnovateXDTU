@@ -1,5 +1,6 @@
 package com.dtu.innovateX.core
 
+import DualLinePlot
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -59,15 +60,21 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         checkPermissions(this)
+//        setContent {
+//            InnovateXDTUTheme {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    val navController = rememberNavController()
+//                    AppNavHost(navController)
+//                }
+//            }
+//        }
         setContent {
-            InnovateXDTUTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    val navController = rememberNavController()
-                    AppNavHost(navController)
-                }
+            MaterialTheme() {
+                // Your app content
+                DualLinePlot()
             }
         }
     }
@@ -111,7 +118,7 @@ fun AppNavHost(navController: NavHostController) {
         }
     }
 
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(navController = navController, startDestination = "ygraph") {
         composable("home") {
             BluetoothScreen(
                 onSendDataClicked = { navController.navigate("sendData") },
@@ -123,6 +130,9 @@ fun AppNavHost(navController: NavHostController) {
         }
         composable("receiveData") {
             ReceiveDataScreen(onBackClicked = { navController.popBackStack() })
+        }
+        composable("ygraph") {
+            DualLinePlot()
         }
     }
 }
