@@ -18,7 +18,8 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun UserScreen(
     viewModel: UserViewModel = hiltViewModel(),
-    authViewModel: AuthViewModel = hiltViewModel()
+    authViewModel: AuthViewModel = hiltViewModel(),
+    navigateToBluetoothAddScreen: () -> Unit
 ) {
     val userState by viewModel.userState.collectAsState()
     val devicesState by viewModel.devicesState.collectAsState()
@@ -72,7 +73,9 @@ fun UserScreen(
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-
+        Button(onClick = navigateToBluetoothAddScreen) {
+            Text(text = "Go")
+        }
         when (val state = devicesState) {
             is Resource.Idle -> {
                 Text("Idle")

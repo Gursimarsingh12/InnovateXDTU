@@ -20,13 +20,10 @@ fun TextFieldComponent(
     modifier: Modifier = Modifier,
     text: String,
     onValueChange: (String) -> Unit,
-    keyboardType: KeyboardType,
     hintText: String,
     errorText: String,
     leadingIcon: ImageVector,
     trailingIcon: ImageVector?,
-    onClickTrailingIcon: (() -> Unit)? = null,
-    visualTransformation: VisualTransformation,
     isError: Boolean
 ) {
     OutlinedTextField(
@@ -36,9 +33,6 @@ fun TextFieldComponent(
         },
         modifier = modifier
             .fillMaxWidth(),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = keyboardType,
-        ),
         placeholder = {
             Text(
                 text = hintText
@@ -56,9 +50,7 @@ fun TextFieldComponent(
             if (trailingIcon != null) {
                 IconButton(
                     onClick = {
-                        if (onClickTrailingIcon != null) {
-                            onClickTrailingIcon()
-                        }
+
                     },
                 ) {
                     Icon(imageVector = trailingIcon, contentDescription = "")
@@ -68,6 +60,5 @@ fun TextFieldComponent(
         isError = isError,
         singleLine = true,
         shape = RoundedCornerShape(13.dp),
-        visualTransformation = visualTransformation
     )
 }

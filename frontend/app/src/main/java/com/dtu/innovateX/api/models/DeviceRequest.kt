@@ -11,4 +11,3 @@ data class DeviceRequest(
     val deviceHourlyConsumption: Int? = null,
     val deviceUsageTime: Int? = null
 )
-

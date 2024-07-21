@@ -35,6 +35,18 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.poppins_regular)),
         fontWeight = FontWeight(400),
         color = Color.Black
+    ),
+    displaySmall = TextStyle(
+        fontFamily = FontFamily(Font(R.font.days_one_regular)),
+        fontWeight = FontWeight(400),
+        fontSize = 18.sp,
+        color = Color.Black
+    ),
+    headlineMedium = TextStyle(
+        fontSize = 14.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_regular)),
+        fontWeight = FontWeight(400),
+        color = Color.Black
     )
     /* Other default text styles to override
     titleLarge = TextStyle(
