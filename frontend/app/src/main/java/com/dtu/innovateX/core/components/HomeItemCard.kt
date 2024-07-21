@@ -28,10 +28,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dtu.innovateX.core.theme.lightBlue
 
-@Preview
+
 @Composable
 fun HomeItemCard(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    text: String
 ) {
     Card(
         onClick = {
@@ -39,11 +40,7 @@ fun HomeItemCard(
         },
         modifier = modifier
             .fillMaxWidth()
-            .height(95.dp)
-            .shadow(
-                elevation = 4.dp,
-                spotColor = lightBlue,
-            ),
+            .height(95.dp),
 
         colors = CardDefaults.cardColors(
             containerColor = Color.White.copy(alpha = 0.55f),
@@ -57,7 +54,7 @@ fun HomeItemCard(
                 .fillMaxSize()
                 .padding(start = 13.dp, top = 13.dp)
         ) {
-            Text(text = "Living Room", style = MaterialTheme.typography.bodyMedium)
+            Text(text = text, style = MaterialTheme.typography.bodyMedium)
             Spacer(modifier = Modifier.height(16.dp))
             Row {
                 Icon(

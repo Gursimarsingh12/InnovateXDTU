@@ -58,7 +58,6 @@ class AuthRepositoryImpl @Inject constructor(
             )
             val credential = result.credential
             val googleIdToken = GoogleIdTokenCredential.createFrom(credential.data).idToken
-
             val firebaseCredential = GoogleAuthProvider.getCredential(googleIdToken, null)
             val authResult = auth.signInWithCredential(firebaseCredential).await()
             emit(Resource.Success(authResult.user))

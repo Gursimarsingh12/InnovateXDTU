@@ -46,55 +46,49 @@ import com.dtu.innovateX.core.theme.midBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomTopAppBar() {
-    TopAppBar(
-        title = {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 20.dp, end = 20.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Column(
-                    verticalArrangement = Arrangement.SpaceEvenly,
-                    horizontalAlignment = Alignment.Start
-                ) {
-                    Text(
-                        text = "Akansha",
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Row (
-                        verticalAlignment = Alignment.CenterVertically
-                    ){
-                        LinearProgressIndicator(
-                            progress = {
-                                0.5f
-                            },
-                            modifier = Modifier
-                                .width(150.dp)
-                                .height(15.dp)
-                                .clip(RoundedCornerShape(8.dp)),
-                            trackColor = greyColor,
-                            strokeCap = StrokeCap.Round,
-                            color = Color.Black
-                        )
-                        Spacer(modifier = Modifier.width(3.dp))
-                        Text(
-                            text = "50%",
-                            fontSize = 11.sp
-                        )
-                    }
-                }
-                IconsRow()
+fun CustomTopAppBar(
+    name: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 20.dp, end = 20.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Column(
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(
+                text = name,
+                style = MaterialTheme.typography.bodySmall
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Row (
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                LinearProgressIndicator(
+                    progress = {
+                        0.5f
+                    },
+                    modifier = Modifier
+                        .width(150.dp)
+                        .height(15.dp)
+                        .clip(RoundedCornerShape(8.dp)),
+                    trackColor = greyColor,
+                    strokeCap = StrokeCap.Round,
+                    color = Color.Black
+                )
+                Spacer(modifier = Modifier.width(3.dp))
+                Text(
+                    text = "50%",
+                    fontSize = 11.sp
+                )
             }
-        },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = lightestBlue
-        ),
-        modifier = Modifier.background(brush = Brush.linearGradient(colors = listOf(midBlue, lightestBlue)))
-    )
+        }
+        IconsRow()
+    }
 }
 
 @Composable
@@ -127,5 +121,5 @@ fun IconBox(icon: ImageVector) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewCustomTopAppBar() {
-    CustomTopAppBar()
+    CustomTopAppBar("")
 }

@@ -10,10 +10,14 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun TextFieldComponent(
@@ -22,7 +26,6 @@ fun TextFieldComponent(
     onValueChange: (String) -> Unit,
     hintText: String,
     errorText: String,
-    leadingIcon: ImageVector,
     trailingIcon: ImageVector?,
     isError: Boolean
 ) {
@@ -35,16 +38,23 @@ fun TextFieldComponent(
             .fillMaxWidth(),
         placeholder = {
             Text(
-                text = hintText
+                text = hintText,
+                style = TextStyle(
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight(400),
+                    color = Color.Black
+                ),
             )
         },
         supportingText = {
             Text(
                 text = errorText,
+                style = TextStyle(
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight(400),
+                    color = Color.Black
+                ),
             )
-        },
-        leadingIcon = {
-            Icon(imageVector = leadingIcon, contentDescription = "")
         },
         trailingIcon = {
             if (trailingIcon != null) {
