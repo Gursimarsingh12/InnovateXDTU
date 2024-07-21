@@ -1,6 +1,6 @@
 package com.dtu.innovateX.core
 
-import MyCombinedChart
+import DualLinePlot
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
@@ -60,15 +60,21 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         checkPermissions(this)
+//        setContent {
+//            InnovateXDTUTheme {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    val navController = rememberNavController()
+//                    AppNavHost(navController)
+//                }
+//            }
+//        }
         setContent {
-            InnovateXDTUTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    val navController = rememberNavController()
-                    AppNavHost(navController)
-                }
+            MaterialTheme() {
+                // Your app content
+                DualLinePlot()
             }
         }
     }
@@ -126,7 +132,7 @@ fun AppNavHost(navController: NavHostController) {
             ReceiveDataScreen(onBackClicked = { navController.popBackStack() })
         }
         composable("ygraph") {
-            MyCombinedChart()
+            DualLinePlot()
         }
     }
 }
