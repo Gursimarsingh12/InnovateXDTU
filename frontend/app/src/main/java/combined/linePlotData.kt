@@ -5,10 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import co.yml.charts.axis.AxisData
-import co.yml.charts.common.model.Point
 import co.yml.charts.common.utils.DataUtils
-import co.yml.charts.ui.barchart.models.BarPlotData
-import co.yml.charts.ui.barchart.models.BarStyle
 import co.yml.charts.ui.combinedchart.CombinedChart
 import co.yml.charts.ui.combinedchart.model.CombinedChartData
 import co.yml.charts.ui.linechart.model.IntersectionPoint
@@ -24,10 +21,6 @@ fun DualLinePlot(modifier: Modifier = Modifier) {
   // Sample data for demonstration
   val list1 = List(10) { it * 10 }  // 10 data points ranging from 0 to 90
   val list2 = List(10) { it * 15 }  // 10 data points ranging from 0 to 135
-  val listSize = 10
-  val maxValueRange = 100
-  val barSize = 10
-  val colorPaletteList = listOf(Color.Red, Color.Green, Color.Blue)
 
   val linePlotData = LinePlotData(
     lines = listOf(
@@ -48,15 +41,9 @@ fun DualLinePlot(modifier: Modifier = Modifier) {
     )
   )
 
-  val barPlotData = BarPlotData(
-    groupBarList = DataUtils.getGroupBarChartData(listSize, maxValueRange, barSize),
-    barStyle = BarStyle(barWidth = 35.dp),
-    barColorPaletteList = colorPaletteList
-  )
-
   val xAxisData = AxisData.Builder()
     .axisStepSize(30.dp)
-    .steps(maxOf(listSize - 1, listSize - 1))
+    .steps(maxOf(list1.size - 1, list2.size - 1))
     .bottomPadding(40.dp)
     .labelData { index -> index.toString() }
     .build()
@@ -69,7 +56,7 @@ fun DualLinePlot(modifier: Modifier = Modifier) {
     .build()
 
   val combinedChartData = CombinedChartData(
-    combinedPlotDataList = listOf(barPlotData, linePlotData),
+    combinedPlotDataList = listOf(linePlotData),
     xAxisData = xAxisData,
     yAxisData = yAxisData
   )
